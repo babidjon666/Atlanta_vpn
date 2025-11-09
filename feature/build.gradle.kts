@@ -44,14 +44,14 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.ui)
-                implementation(compose.components.resources)
-                implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
-                implementation(project(":core"))
+                api(libs.kotlin.stdlib)
+                api(compose.runtime)
+                api(compose.foundation)
+                api(compose.material)
+                api(compose.ui)
+                api(compose.components.resources)
+                api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
+                api(project(":core"))
             }
         }
 

@@ -22,6 +22,9 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            export(project(":core"))
+            export(project(":feature"))
+            freeCompilerArgs += "-Xbinary=bundleId=com.example.atlanta_vpn"
         }
     }
     
@@ -39,9 +42,9 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             // подключение модулей
-            implementation(projects.core)
+            api(projects.core)
             implementation(projects.data)
-            implementation(projects.feature)
+            api(projects.feature)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

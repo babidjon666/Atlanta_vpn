@@ -1,4 +1,6 @@
 plugins {
+    alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.androidLint)
@@ -61,10 +63,18 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
 
-                // Add KMP dependencies here
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.androidx.lifecycle.runtimeCompose)
-                implementation(libs.androidx.lifecycle.viewmodelCompose)
+                // Корутины
+                api(libs.kotlin.coroutines.core)
+
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.animationGraphics)
+                implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
                 // Room
                 implementation(libs.androidx.room.runtime)
                 implementation(libs.sqlite.bundled)
@@ -90,7 +100,6 @@ kotlin {
             dependencies {
                 implementation(libs.androidx.runner)
                 implementation(libs.androidx.core)
-                implementation(libs.androidx.testExt.junit)
             }
         }
 

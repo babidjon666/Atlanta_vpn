@@ -38,7 +38,7 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
-            implementation(compose.components.resources)
+//            implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
 
             // подключение модулей
@@ -55,6 +55,10 @@ kotlin {
 android {
     namespace = "com.example.atlanta_vpn"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    sourceSets["main"].assets.srcDirs(
+        project(":core").file("src/commonMain/composeResources")
+    )
 
     defaultConfig {
         applicationId = "com.example.atlanta_vpn"

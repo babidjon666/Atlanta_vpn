@@ -18,6 +18,7 @@ core = "1.5.0"
 androidxRoom = "2.8.3"
 sqlite = "2.6.1"
 kotlin_coroutines_core_version = "1.10.2"
+compottieVersion = "2.0.2"
 
 [libraries]
 
@@ -39,10 +40,15 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { module = "junit:junit", version.ref = "junit" }
-
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlinStdlib" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 androidx-core = { group = "androidx.test", name = "core", version.ref = "core" }
+
+# анимации из JSON
+compottie = { module = "io.github.alexzhirkevich:compottie", version.ref = "compottieVersion" }
+compottie-dot = { module = "io.github.alexzhirkevich:compottie-dot", version.ref = "compottieVersion" }
+compottie-network = { module = "io.github.alexzhirkevich:compottie-network", version.ref = "compottieVersion" }
+compottie-resources = { module = "io.github.alexzhirkevich:compottie-resources", version.ref = "compottieVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "plugin_agp" }

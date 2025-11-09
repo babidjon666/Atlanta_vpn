@@ -6,6 +6,12 @@ plugins {
     alias(libs.plugins.androidLint)
 }
 
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "atlanta_vpn.composeapp.generated.resources"
+    generateResClass = auto
+}
+
 kotlin {
     androidLibrary {
         namespace = "com.example.core"
@@ -63,6 +69,11 @@ kotlin {
                 api(libs.androidx.room.runtime)
                 api(libs.sqlite.bundled)
                 api(libs.sqlite)
+
+                // Анимации JSON
+                implementation(libs.compottie)
+                implementation(libs.compottie.resources)
+                implementation(libs.compottie.dot)
             }
         }
 
@@ -89,5 +100,11 @@ kotlin {
             }
         }
     }
-
+}
+afterEvaluate {
+    extensions.findByName("android")?.let { ext ->
+        (ext as com.android.build.gradle.LibraryExtension).apply {
+            sourceSets.getByName("main").assets.srcDir("src/commonMain/composeResources")
+        }
+    }
 }

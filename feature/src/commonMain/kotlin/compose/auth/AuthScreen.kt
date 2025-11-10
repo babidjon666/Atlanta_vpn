@@ -4,12 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
-
-
 import compose.auth.viewModel.AuthViewModel
+import compose.auth.viewModel.models.AuthAction
+import navigation.LocalMainNavHost
+import navigation.MainScreens
 
 @Composable
 fun AuthScreen(){
+    val mainNavHost = LocalMainNavHost.current
+
     val viewModel: AuthViewModel = viewModel { AuthViewModel() }
     val viewState by viewModel.viewStates().collectAsState()
     val viewAction by viewModel.viewActions().collectAsState(null)
@@ -19,6 +22,11 @@ fun AuthScreen(){
     }
 
     when(viewAction){
+        is AuthAction.OpenMainScreen -> {
+            mainNavHost.navigate(MainScreens.MainScreen)
+            viewModel.clearAction()
+        }
+
         null -> {
 
         }

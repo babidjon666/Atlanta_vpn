@@ -10,8 +10,14 @@ class AuthViewModel: BaseViewModel<AuthState, AuthAction, AuthEvent>(
 ) {
     override fun obtainEvent(viewEvent: AuthEvent) {
         when(viewEvent){
-
-            else -> {}
+            AuthEvent.ClickOpenMainScreen -> openMainScreen()
         }
+    }
+
+    private fun openMainScreen(){
+        viewState = viewState.copy(
+            showStartAnimation = false
+        )
+        viewAction = AuthAction.OpenMainScreen
     }
 }

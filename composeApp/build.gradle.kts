@@ -40,7 +40,12 @@ kotlin {
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.uiToolingPreview)
+
+            // Compose навигация
             implementation(libs.compose.navigation)
+
+            // DI
+            api(libs.kodein)
 
             // подключение модулей
             api(projects.core)

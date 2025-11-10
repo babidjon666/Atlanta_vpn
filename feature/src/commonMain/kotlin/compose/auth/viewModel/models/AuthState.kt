@@ -1,5 +1,5 @@
 package compose.auth.viewModel.models
 
 data class AuthState(
-    val test: String = "Привет"
+    val showStartAnimation: Boolean = true
 )

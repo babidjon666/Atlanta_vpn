@@ -50,7 +50,10 @@ kotlin {
                 api(compose.material)
                 api(compose.ui)
                 api(compose.components.resources)
+
+                // Compose навигация
                 implementation(libs.compose.navigation)
+
                 api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
                 api(project(":core"))
             }

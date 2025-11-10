@@ -71,6 +71,9 @@ kotlin {
                 api(libs.sqlite.bundled)
                 api(libs.sqlite)
 
+                // Compose навигация
+                implementation(libs.compose.navigation)
+
                 // Анимации JSON
                 implementation(libs.compottie)
                 implementation(libs.compottie.resources)

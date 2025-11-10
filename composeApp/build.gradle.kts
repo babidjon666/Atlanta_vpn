@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -38,8 +39,8 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
-//            implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.compose.navigation)
 
             // подключение модулей
             api(projects.core)

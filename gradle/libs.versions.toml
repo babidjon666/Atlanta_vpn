@@ -19,6 +19,7 @@ androidxRoom = "2.8.3"
 sqlite = "2.6.1"
 kotlin_coroutines_core_version = "1.10.2"
 compottieVersion = "2.0.2"
+nav_version = "2.9.1"
 
 [libraries]
 
@@ -35,6 +36,9 @@ sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+
+# навигация compose
+compose-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "nav_version" }
 
 # потом почистить (удалить лишние)
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -56,6 +60,7 @@ androidLibrary = { id = "com.android.library", version.ref = "plugin_agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "plugin_compose" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "plugin_agp" }
 androidLint = { id = "com.android.lint", version.ref = "plugin_agp" }
 room = { id = "androidx.room", version.ref = "androidxRoom" }

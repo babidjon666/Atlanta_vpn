@@ -20,6 +20,7 @@ sqlite = "2.6.1"
 kotlin_coroutines_core_version = "1.10.2"
 compottieVersion = "2.0.2"
 nav_version = "2.9.1"
+kodein_version = "7.28.0"
 
 [libraries]
 
@@ -53,6 +54,9 @@ compottie = { module = "io.github.alexzhirkevich:compottie", version.ref = "comp
 compottie-dot = { module = "io.github.alexzhirkevich:compottie-dot", version.ref = "compottieVersion" }
 compottie-network = { module = "io.github.alexzhirkevich:compottie-network", version.ref = "compottieVersion" }
 compottie-resources = { module = "io.github.alexzhirkevich:compottie-resources", version.ref = "compottieVersion" }
+
+# DI зависимости
+kodein = { group = "org.kodein.di", name = "kodein-di", version.ref = "kodein_version" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "plugin_agp" }

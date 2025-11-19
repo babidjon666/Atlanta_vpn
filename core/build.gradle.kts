@@ -1,3 +1,5 @@
+import kotlin.collections.plus
+
 plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
@@ -14,6 +16,18 @@ compose.resources {
 }
 
 kotlin {
+    listOf(
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+            export(project(":core"))
+            export(project(":feature"))
+            freeCompilerArgs += "-Xbinary=bundleId=com.example.atlanta_vpn"
+        }
+    }
     androidLibrary {
         namespace = "com.example.core"
         compileSdk = 36
@@ -29,25 +43,7 @@ kotlin {
         }
     }
 
-    val xcfName = "coreKit"
 
-    iosX64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
 
     sourceSets {
         commonMain {

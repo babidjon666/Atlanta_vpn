@@ -21,6 +21,7 @@ kotlin_coroutines_core_version = "1.10.2"
 compottieVersion = "2.0.2"
 nav_version = "2.9.1"
 kodein_version = "7.28.0"
+runtime = "1.9.4"
 
 [libraries]
 
@@ -57,6 +58,7 @@ compottie-resources = { module = "io.github.alexzhirkevich:compottie-resources",
 
 # DI зависимости
 kodein = { group = "org.kodein.di", name = "kodein-di", version.ref = "kodein_version" }
+androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "plugin_agp" }

@@ -1,26 +1,28 @@
 package compose.auth
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import compose.DefaultAtlantaBackGround
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import compose.auth.viewModel.models.AuthEvent
 import compose.auth.viewModel.models.AuthState
-import kotlinx.coroutines.delay
-import utils.LottieAnimation
 
 @Composable
 fun AuthView(state: AuthState, eventHandler: (AuthEvent) -> Unit) {
-    LaunchedEffect(Unit) {
-        delay(2000)
-        eventHandler.invoke(AuthEvent.ClickOpenMainScreen)
-    }
 
-    DefaultAtlantaBackGround {
-        if (state.showStartAnimation) {
-            LottieAnimation(
-                jsonPath = "files/startAuth_Animation.json",
-                isLoop = true
-            )
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
+        contentAlignment = Alignment.Center
+    ){
+        Column{
+            Text("Тут типа жеская анимация")
         }
     }
 }

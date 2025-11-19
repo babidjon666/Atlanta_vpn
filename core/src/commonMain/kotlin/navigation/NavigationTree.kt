@@ -1,12 +1,7 @@
 package navigation
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-sealed class MainScreens {
-    @Serializable
-    data object AuthScreen: MainScreens()
-
-    @Serializable
-    data object MainScreen: MainScreens()
+object Routes {
+    const val AUTH = "auth"
+    const val MAIN = "main"
+    const val SETTINGS = "settings"
 }

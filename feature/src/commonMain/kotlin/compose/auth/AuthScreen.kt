@@ -7,7 +7,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import compose.auth.viewModel.AuthViewModel
 import compose.auth.viewModel.models.AuthAction
 import navigation.LocalMainNavHost
-import navigation.MainScreens
+import navigation.Routes
 
 @Composable
 fun AuthScreen(){
@@ -23,7 +23,7 @@ fun AuthScreen(){
 
     when(viewAction){
         is AuthAction.OpenMainScreen -> {
-            mainNavHost.navigate(MainScreens.MainScreen)
+            mainNavHost.navigate(Routes.MAIN)
             viewModel.clearAction()
         }
 

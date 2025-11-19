@@ -36,10 +36,10 @@ fun AnimatedTextBlock() {
             visible = visible.value,
             enter = fadeIn() + slideInVertically(initialOffsetY = { -40 })
         ) {
-            Text(
+            AtlantaText(
                 text = "С возвращением!",
-                fontSize = 35.sp,
-                fontWeight = FontWeight.Bold
+                weight = 510f,
+                size = 35f
             )
         }
 
@@ -49,21 +49,33 @@ fun AnimatedTextBlock() {
             visible = visible.value,
             enter = fadeIn(animationSpec = tween(700, delayMillis = 300))
         ) {
-            Text(text = "Вы ещё не подключились к Atlanta VPN.", fontSize = 15.sp)
+            AtlantaText(
+                text = "Вы ещё не подключились к Atlanta VPN.",
+                weight = 400f,
+                size = 15f
+            )
         }
 
         AnimatedVisibility(
             visible = visible.value,
             enter = fadeIn(animationSpec = tween(700, delayMillis = 450))
         ) {
-            Text(text = "Чтобы подключиться, следуйте", fontSize = 15.sp)
+            AtlantaText(
+                text = "Чтобы подключиться, следуйте",
+                weight = 400f,
+                size = 15f
+            )
         }
 
         AnimatedVisibility(
             visible = visible.value,
             enter = fadeIn(animationSpec = tween(700, delayMillis = 600))
         ) {
-            Text(text = "инструкции ниже.", fontSize = 15.sp)
+            AtlantaText(
+                text = "инструкции ниже.",
+                weight = 400f,
+                size = 15f
+            )
         }
     }
 }

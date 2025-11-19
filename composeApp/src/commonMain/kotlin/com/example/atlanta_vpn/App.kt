@@ -25,8 +25,8 @@ fun App() {
 
     val tabs = remember {
         listOf(
-            AppTabItem("Мои ключи", "tray.full", "tray.full", Routes.AUTH),
-            AppTabItem("Главная", "shield.lefthalf.filled", "shield.lefthalf.filled", Routes.MAIN),
+            AppTabItem("Мои ключи", "tray.2.fill", "tray.2.fill", Routes.AUTH),
+            AppTabItem("Главная", "bolt.shield.fill", "bolt.shield.fill", Routes.MAIN),
             AppTabItem("Настройки", "gear", "gear", Routes.SETTINGS)
         )
     }

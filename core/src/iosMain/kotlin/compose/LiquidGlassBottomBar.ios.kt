@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.interop.UIKitView
+import androidx.compose.ui.platform.LocalHapticFeedback
 import compose.models.AppTabItem
 import kotlinx.cinterop.ExperimentalForeignApi
 import platform.UIKit.*
@@ -19,12 +21,13 @@ actual fun LiquidGlassBottomBar(
     onSelect: (Int) -> Unit
 ) {
     val currentOnSelect = rememberUpdatedState(onSelect)
-
+    val haptic = LocalHapticFeedback.current
     val delegate = remember {
         object : NSObject(), UITabBarDelegateProtocol {
             override fun tabBar(tabBar: UITabBar, didSelectItem: UITabBarItem) {
                 val index = tabBar.items?.indexOf(didSelectItem) ?: 0
                 currentOnSelect.value(index)
+                haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
             }
         }
     }

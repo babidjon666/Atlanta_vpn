@@ -9,7 +9,6 @@ import navigation.LocalMainNavHost
 
 @Composable
 fun MainScreen(){
-    println("MainScreen")
     val mainNavHost = LocalMainNavHost.current
 
     val viewModel: MainViewModel = viewModel { MainViewModel() }

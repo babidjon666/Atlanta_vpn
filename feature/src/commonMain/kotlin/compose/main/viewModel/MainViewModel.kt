@@ -11,7 +11,20 @@ class MainViewModel: BaseViewModel<MainState, MainAction, MainEvent>(
 ) {
     override fun obtainEvent(viewEvent: MainEvent) {
         when(viewEvent){
-            else -> {}
+            is MainEvent.ConnectVpn -> connectVpn()
+            is MainEvent.DisconnectVpn -> disconnectVpn()
         }
+    }
+
+    private fun connectVpn(){
+        viewState = viewState.copy(
+            isVpnConnected = true
+        )
+    }
+
+    private fun disconnectVpn(){
+        viewState = viewState.copy(
+            isVpnConnected = false
+        )
     }
 }

@@ -2,13 +2,14 @@ package utils
 
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 @Composable
-actual fun AtlantaText(text: String, weight: Float, size: Float) {
+actual fun AtlantaText(text: String, weight: Float, size: Float, color: Color) {
     Text(
         text = text,
         style = TextStyle(
@@ -16,7 +17,8 @@ actual fun AtlantaText(text: String, weight: Float, size: Float) {
             fontWeight = mapWeight(weight),
             fontSize = size.sp,
             letterSpacing = (-0.45).sp
-        )
+        ),
+        color = color
     )
 }
 fun mapWeight(weight: Float): FontWeight =

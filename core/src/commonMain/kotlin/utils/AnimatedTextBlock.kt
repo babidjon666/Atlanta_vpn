@@ -15,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,7 +40,8 @@ fun AnimatedTextBlock() {
             AtlantaText(
                 text = "С возвращением!",
                 weight = 510f,
-                size = 35f
+                size = 35f,
+                color = Color.Black
             )
         }
 
@@ -52,7 +54,8 @@ fun AnimatedTextBlock() {
             AtlantaText(
                 text = "Вы ещё не подключились к Atlanta VPN.",
                 weight = 400f,
-                size = 15f
+                size = 15f,
+                color = Color.Black
             )
         }
 
@@ -63,7 +66,8 @@ fun AnimatedTextBlock() {
             AtlantaText(
                 text = "Чтобы подключиться, следуйте",
                 weight = 400f,
-                size = 15f
+                size = 15f,
+                color = Color.Black
             )
         }
 
@@ -74,7 +78,8 @@ fun AnimatedTextBlock() {
             AtlantaText(
                 text = "инструкции ниже.",
                 weight = 400f,
-                size = 15f
+                size = 15f,
+                color = Color.Black
             )
         }
     }

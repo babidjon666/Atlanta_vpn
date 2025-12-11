@@ -79,7 +79,7 @@ fun Swipe(
     val boxColor = if (isSwiped) {
         AtlantaColors.Blue
     } else {
-        AtlantaColors.DarkGrayForSwipe
+        AtlantaColors.DarkGrayForSwipe.copy(alpha = 0.4f)
     }
 
     val density = LocalDensity.current
@@ -164,19 +164,19 @@ fun Swipe(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
-                            Image(
-                                painter = painterResource(
-                                    if (isSwiped) {
-                                        Res.drawable.WIFI_White
-                                    } else {
-                                        Res.drawable.NoWIFI_white
-                                    }
-                                ),
-                                contentDescription = null,
-                                modifier = Modifier
-                                    .height(18.dp)
-                                    .width(22.dp),
-                            )
+//                            Image(
+//                                painter = painterResource(
+//                                    if (isSwiped) {
+//                                        Res.drawable.WIFI_White
+//                                    } else {
+//                                        Res.drawable.NoWIFI_white
+//                                    }
+//                                ),
+//                                contentDescription = null,
+//                                modifier = Modifier
+//                                    .height(18.dp)
+//                                    .width(22.dp),
+//                            )
                             Spacer(modifier = Modifier.height(2.dp))
                             AtlantaText(
                                 text = if (isSwiped) {
@@ -199,13 +199,13 @@ fun Swipe(
                         exit = fadeOut()
                     ) {
                         Spacer(modifier = Modifier.width(31.dp))
-                        Image(
-                            painter = painterResource(Res.drawable.Arrow_swipe),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .height(30.dp)
-                                .width(127.dp),
-                        )
+//                        Image(
+//                            painter = painterResource(Res.drawable.Arrow_swipe),
+//                            contentDescription = null,
+//                            modifier = Modifier
+//                                .height(30.dp)
+//                                .width(127.dp),
+//                        )
                     }
                 }
             }

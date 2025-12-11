@@ -51,7 +51,7 @@ fun Timer() {
                 .fillMaxWidth()
                 .height(169.dp)
                 .clip(RoundedCornerShape(40.dp))
-                .background(Color.Black)
+                .background(AtlantaColors.LightGray3)
         ) {
             Column(
                 modifier = Modifier
@@ -70,7 +70,7 @@ fun Timer() {
                     text = "0:00",
                     weight = 510f,
                     size = 45f,
-                    color = Color.White
+                    color = Color.Black
                 )
             }
 
@@ -80,7 +80,7 @@ fun Timer() {
                     .padding(7.dp)
                     .fillMaxSize()
                     .clip(RoundedCornerShape(35.dp))
-                    .background(AtlantaColors.DarkGray),
+                    .background(AtlantaColors.Gray2),
                 contentAlignment = Alignment.Center
             ){
                 Box(
@@ -117,11 +117,11 @@ fun Timer() {
                             .background(Color.Black),
                         contentAlignment = Alignment.Center
                     ){
-                        Image(
-                            painter = painterResource(Res.drawable.Earth_gray),
-                            contentDescription = null,
-                            modifier = Modifier.size(29.dp),
-                        )
+//                        Image(
+//                            painter = painterResource(Res.drawable.Earth_gray),
+//                            contentDescription = null,
+//                            modifier = Modifier.size(29.dp),
+//                        )
                     }
                 }
             }

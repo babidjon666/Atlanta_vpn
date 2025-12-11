@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import atlanta_vpn.composeapp.generated.resources.Earth_gray
 import atlanta_vpn.composeapp.generated.resources.Res
+import atlanta_vpn.composeapp.generated.resources.phone_black
 import atlanta_vpn.composeapp.generated.resources.phone_white
 import org.jetbrains.compose.resources.painterResource
 import ui.AtlantaColors
@@ -51,7 +52,7 @@ fun RegionInfo(regionName: String) {
                 .fillMaxWidth()
                 .height(83.dp)
                 .clip(RoundedCornerShape(20.dp))
-                .background(Color.Black)
+                .background(AtlantaColors.LightGray3)
         ){
             Row(
                 modifier = Modifier
@@ -61,11 +62,11 @@ fun RegionInfo(regionName: String) {
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = painterResource(Res.drawable.phone_white),
-                    contentDescription = null,
-                    modifier = Modifier.height(38.dp).width(23.dp),
-                )
+//                Image(
+//                    painter = painterResource(Res.drawable.phone_black),
+//                    contentDescription = null,
+//                    modifier = Modifier.height(38.dp).width(23.dp),
+//                )
 
                 Column(
                     modifier = Modifier
@@ -84,7 +85,7 @@ fun RegionInfo(regionName: String) {
                         text = regionName,
                         weight = 510f,
                         size = 25f,
-                        color = Color.White
+                        color = Color.Black
                     )
                 }
             }
@@ -92,7 +93,7 @@ fun RegionInfo(regionName: String) {
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxSize()
-                    .background(Color.Black),
+                    .background(AtlantaColors.LightGray3),
                 contentAlignment = Alignment.Center
             ){
                 CustomAtlantaButton()

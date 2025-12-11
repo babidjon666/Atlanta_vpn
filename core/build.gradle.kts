@@ -1,21 +1,30 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import kotlin.collections.plus
+import org.jetbrains.compose.resources.ResourcesExtension.ResourceClassGeneration.Auto
 
 plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidKotlinMultiplatformLibrary)
-    alias(libs.plugins.androidLint)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
 }
 
 compose.resources {
     publicResClass = true
     packageOfResClass = "atlanta_vpn.composeapp.generated.resources"
-    generateResClass = auto
+    generateResClass = Auto
 }
 
+
 kotlin {
+    androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
     listOf(
         iosX64(),
         iosArm64(),
@@ -29,22 +38,6 @@ kotlin {
             freeCompilerArgs += "-Xbinary=bundleId=com.example.atlanta_vpn"
         }
     }
-    androidLibrary {
-        namespace = "com.example.core"
-        compileSdk = 36
-        minSdk = 24
-
-        withHostTestBuilder {
-        }
-
-        withDeviceTestBuilder {
-            sourceSetTreeName = "test"
-        }.configure {
-            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        }
-    }
-
-
 
     sourceSets {
         commonMain {
@@ -63,14 +56,19 @@ kotlin {
                 api(compose.components.resources)
                 api(compose.animationGraphics)
                 api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
+                api(project(":data"))
                 // Room
                 api(libs.androidx.room.runtime)
                 api(libs.sqlite.bundled)
                 api(libs.sqlite)
 
+                implementation(libs.multiplatform.settings)
                 // Compose навигация
                 implementation(libs.compose.navigation)
-
+                // DI
+                api(libs.kodein)
+                // работа с сетью
+                implementation(libs.bundles.ktor)
                 // Анимации JSON
                 implementation(libs.compottie)
                 implementation(libs.compottie.resources)
@@ -78,21 +76,8 @@ kotlin {
             }
         }
 
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
-        }
-
         androidMain {
             dependencies {
-            }
-        }
-
-        getByName("androidDeviceTest") {
-            dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
             }
         }
 
@@ -102,10 +87,26 @@ kotlin {
         }
     }
 }
-afterEvaluate {
-    extensions.findByName("android")?.let { ext ->
-        (ext as com.android.build.gradle.LibraryExtension).apply {
-            sourceSets.getByName("main").assets.srcDir("src/commonMain/composeResources")
-        }
+
+android {
+    namespace = "com.example.atlanta_vpn.core"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
+
+//afterEvaluate {
+//    extensions.findByName("android")?.let { ext ->
+//        (ext as com.android.build.gradle.LibraryExtension).apply {
+//            sourceSets.getByName("main").assets.srcDir("src/commonMain/composeResources")
+//        }
+//    }
+//}

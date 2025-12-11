@@ -8,6 +8,8 @@ plugins {
 }
 
 kotlin {
+
+    jvmToolchain(11)
     androidLibrary {
         namespace = "com.example.feature"
         compileSdk = 36
@@ -56,6 +58,13 @@ kotlin {
 
                 api("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.6")
                 api(project(":core"))
+                api(project(":data"))
+                // DI
+                api(libs.kodein)
+                // работа с сетью
+                implementation(libs.bundles.ktor)
+                implementation(libs.kotlinx.datetime)
+
             }
         }
 

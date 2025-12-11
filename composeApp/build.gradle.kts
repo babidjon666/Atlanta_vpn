@@ -10,11 +10,8 @@ plugins {
 }
 
 kotlin {
-    androidTarget {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
-    }
+    androidTarget()
+    jvmToolchain(11)
     
     listOf(
         iosArm64(),
@@ -33,6 +30,12 @@ kotlin {
         androidMain.dependencies {
           //  implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            dependencies {
+                implementation(libs.ktor.client.okhttp)
+            }
+        }
+        nativeMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -43,10 +46,11 @@ kotlin {
 
             // Compose навигация
             implementation(libs.compose.navigation)
-
+            // работа с сетью
+            implementation(libs.bundles.ktor)
             // DI
             api(libs.kodein)
-
+            implementation(libs.multiplatform.settings)
             // подключение модулей
             api(projects.core)
             implementation(projects.data)

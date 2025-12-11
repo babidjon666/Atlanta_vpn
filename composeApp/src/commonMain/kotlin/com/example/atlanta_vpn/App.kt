@@ -12,6 +12,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import compose.LiquidGlassBottomBar
 import compose.models.AppTabItem
+import domain.entity.Api.InsultCensorClient
 import navigation.GenerateMainGraph
 import navigation.Routes
 
@@ -25,7 +26,7 @@ fun App() {
 
     val tabs = remember {
         listOf(
-            AppTabItem("Мои ключи", "tray.2.fill", "tray.2.fill", Routes.AUTH),
+            AppTabItem("Мои ключи", "tray.2.fill", "tray.2.fill", Routes.CONFIG),
             AppTabItem("Главная", "bolt.shield.fill", "bolt.shield.fill", Routes.MAIN),
             AppTabItem("Настройки", "gear", "gear", Routes.SETTINGS)
         )

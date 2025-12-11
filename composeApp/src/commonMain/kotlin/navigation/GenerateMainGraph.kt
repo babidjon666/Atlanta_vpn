@@ -9,6 +9,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import compose.auth.AuthScreen
+import compose.config.ConfigScreen
 import compose.main.MainScreen
 import compose.settings.SettingsScreen
 
@@ -27,6 +28,12 @@ fun GenerateMainGraph(navController: NavHostController) {
                 route = Routes.AUTH
             ) {
                 AuthScreen()
+            }
+
+            composable(
+                route = Routes.CONFIG
+            ) {
+                ConfigScreen()
             }
 
             composable(

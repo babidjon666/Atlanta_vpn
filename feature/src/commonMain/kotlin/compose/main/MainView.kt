@@ -18,6 +18,7 @@ import compose.main.viewModel.models.MainEvent
 import compose.main.viewModel.models.MainState
 import utils.AnimatedTextBlock
 import compose.Swipe
+import utills.getHWID
 
 @Composable
 fun MainView(state: MainState, evenHandler: (MainEvent) -> Unit) {
@@ -30,7 +31,7 @@ fun MainView(state: MainState, evenHandler: (MainEvent) -> Unit) {
         Spacer(modifier = Modifier.height(40.dp))
         Timer()
         Spacer(modifier = Modifier.height(9.dp))
-        RegionInfo(regionName = "Россия")
+        RegionInfo(regionName = getHWID())
         Spacer(modifier = Modifier.height(97.dp))
         BoxWithConstraints {
             val parentWidth = maxWidth
